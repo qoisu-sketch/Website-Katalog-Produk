@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Frost - Katalog Es Krim Khas Jepang | X PPLG 1</title>
+    <style>
+        /* CSS Styling - Konsisten, Minimalis, Modern, & Elegan */
+        :root {
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --primary-blue: #1e3a8a;
+            --accent-ice: #38bdf8;
+            --ice-light: #e0f2fe;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigasi */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-ice);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-ice);
+        }
+
+        /* Hero Section (Beranda) dengan Efek Parallax/3D Visual */
+        #beranda {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--ice-light) 0%, var(--bg-white) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            transform: translateY(0);
+            animation: floatHero 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatHero {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-ice);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Bagian Umum Section */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-ice);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Katalog Produk Menggunakan CSS Grid */
+        #produk {
+            background-color: var(--bg-light);
+            max-width: 100%;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        article.product-card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        article.product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+        }
+
+        .product-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--ice-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        article.product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .btn-order {
+            background-color: var(--accent-ice);
+            color: var(--primary-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-order:hover {
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+        }
+
+        /* Tentang Usaha Menggunakan Flexbox */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Kontak Section */
+        #kontak {
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--ice-light) 100%);
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25d366;
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Responsivitas dengan Media Query */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Sederhana untuk mobile, bisa dikembangkan dengan JS toggle jika diperlukan */
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigasi Semantik -->
+    <header>
+        <nav>
+            <div class="logo">Tokyo<span>Frost</span></div>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#tentang">Tentang Usaha</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Bagian Beranda -->
+        <section id="beranda">
+            <div class="hero-content">
+                <h1>Nikmati Kelezatan Autentik Es Krim Khas Jepang</h1>
+                <p>Rasakan sensasi kelembutan rasa tradisional Jepang dalam setiap gigitan modern yang menyegarkan hari Anda.</p>
+                <a href="#produk" class="btn-primary">Jelajahi Katalog</a>
+            </div>
+        </section>
+
+        <!-- Bagian Katalog Produk (Minimal 6 Produk dengan CSS Grid) -->
+        <section id="produk">
+            <div class="catalog-container">
+                <h2 class="section-title">Menu Pilihan Kami</h2>
+                <div class="product-grid">
+                    
+                    <!-- Produk 1 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Matcha Green Tea Supreme">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Matcha Green Tea Supreme</h3>
+                                <p>Es krim teh hijau premium asli Jepang dengan taburan serbuk matcha Uji pilihan.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 25.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Matcha%20Green%20Tea%20Supreme" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produk 2 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80" alt="Sakura Blossom Gelato">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Sakura Blossom Gelato</h3>
+                                <p>Gelato lembut beraroma bunga sakura musim semi dengan kelopak manis di atasnya.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 28.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Sakura%20Blossom%20Gelato" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produk 3 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=600&q=80" alt="Black Sesame Kuro Goma">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Black Sesame Kuro Goma</h3>
+                                <p>Es krim wijen hitam panggang khas tradisi Jepang yang kaya cita rasa gurih.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 24.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Black%20Sesame%20Kuro%20Goma" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produk 4 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Yuzu Citrus Refresh">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Yuzu Citrus Refresh</h3>
+                                <p>Es krim sorbet buah yuzu segar asal Jepang yang menghadirkan sensasi cerah.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 22.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Yuzu%20Citrus%20Refresh" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produk 5 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Mochi Ice Cream Daifuku">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Mochi Ice Cream Daifuku</h3>
+                                <p>Es krim vanila lembut yang terbalut kulit mochi kenyal tradisional khas Jepang.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 26.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Mochi%20Ice%20Cream%20Daifuku" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Produk 6 -->
+                    <article class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="Red Bean Azuki Delight">
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3>Red Bean Azuki Delight</h3>
+                                <p>Es krim susu berpadu pasta kacang merah manis azuki yang lezat dan otentik.</p>
+                            </div>
+                            <div class="product-footer">
+                                <span class="price">Rp 23.000</span>
+                                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20tertarik%20memesan%20Red%20Bean%20Azuki%20Delight" class="btn-order" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Tentang Usaha Menggunakan Flexbox -->
+        <section id="tentang">
+            <h2 class="section-title">Tentang Usaha Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Tokyo Frost - Autentisitas Rasa Jepang</h3>
+                    <p>Didirikan pada tahun 2026, Tokyo Frost hadir sebagai jawaban atas kerinduan penikmat kuliner akan cita rasa es krim khas Jepang yang unik, berkualitas tinggi, dan menggunakan bahan-bahan pilihan langsung.</p>
+                    <p>Kami berkomitmen untuk memadukan resep tradisional Jepang dengan standar kebersihan dan kelezatan modern, memberikan pengalaman kuliner terbaik bagi setiap pelanggan setia kami.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Suasana Toko Tokyo Frost">
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Kontak & Pemesanan -->
+        <section id="kontak">
+            <div class="contact-box">
+                <h2 class="section-title">Pesan Sekarang</h2>
+                <p>Ingin merasakan kelembutan es krim khas Jepang kami? Hubungi kami langsung melalui WhatsApp untuk pemesanan cepat!</p>
+                <a href="https://wa.me/6282334022925?text=Halo,%20saya%20ingin%20memesan%20es%20krim%20Tokyo%20Frost." class="whatsapp-btn" target="_blank">
+                    <span>Chat WhatsApp (082334022925)</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Semantik -->
+    <footer>
+        <p>&copy; 2026 Tokyo Frost. Tugas PPLG Kelas X PPLG 1. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- JavaScript Interaktif Sederhana -->
+    <script>
+        // Efek interaktif tambahan untuk navigasi aktif dan animasi saat digulir
+        console.log("Website Katalog Produk Tokyo Frost berhasil dimuat untuk X PPLG 1.");
+    </script>
+</body>
+</html>
